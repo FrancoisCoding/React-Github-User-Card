@@ -4,3 +4,14 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+img {
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.card {
+  max-width: 50% !important;
+  margin: 0 auto;
+}

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
+import UserCard from "./UserCard";
 
 export default class Data extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userData: null,
+      userData: "",
       followersData: null
     };
   }
@@ -32,6 +33,10 @@ export default class Data extends Component {
   }
   render() {
     console.log("state userData", this.state.userData);
-    return <div />;
+    return (
+      <div>
+        <UserCard user={this.state.userData} />
+      </div>
+    );
   }
 }
