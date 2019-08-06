@@ -9,13 +9,13 @@ export default class UserCard extends Component {
     return (
       <div className="card">
         <img
-          class="card-img-top"
+          className="card-img-top"
           src={this.props.user.avatar_url}
           alt="Card image cap"
         />
-        <div class="card-body">
-          <h5 class="card-title">{this.props.user.login}</h5>
-          <p class="card-text">Bio : {this.props.user.bio}</p>
+        <div className="card-body">
+          <h5 className="card-title">{this.props.user.login}</h5>
+          <p className="card-text">Bio : {this.props.user.bio}</p>
         </div>
       </div>
     );

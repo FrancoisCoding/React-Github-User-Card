@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import UserCard from "./UserCard";
+import UserFollowersCard from "./UserFollowersCard";
 
 export default class Data extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ export default class Data extends Component {
 
     this.state = {
       userData: "",
-      followersData: null
+      followersData: ["Loading"]
     };
   }
 
@@ -16,7 +17,6 @@ export default class Data extends Component {
     const userData = axios
       .get("https://api.github.com/users/francoiscoding", {})
       .then(response => {
-        console.log("received data", response.data);
         this.setState({ userData: response.data });
       })
       .catch(e => {
@@ -26,16 +26,17 @@ export default class Data extends Component {
     const userFollowers = axios
       .get("https://api.github.com/users/francoiscoding/followers")
       .then(response => {
-        console.log("received followers data", response.data);
         this.setState({ followersData: response.data });
       })
       .catch(error => console.log("error", error));
   }
   render() {
-    console.log("state userData", this.state.userData);
     return (
       <div>
         <UserCard user={this.state.userData} />
+        {this.state.followersData.map(follower => (
+          <UserFollowersCard follower={follower} />
+        ))}
       </div>
     );
   }
